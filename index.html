@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+            rel="stylesheet">
+        <script src="https://kit.fontawesome.com/34b84b063f.js"
+            crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="index.css">
+        <title>Document</title>
+    </head>
+    <body>
+        <div id="app">
+            <div class="container">
+                <div class="aside">
+                    <div class="recipient-profile bg-white">
+                        <div class="profile">
+                            <div class="image-circle"> <img
+                                    src="./img/avatar_1.jpg" alt> </div>
+
+                        </div>
+                        <div class="icons">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                            <i class="fa-solid fa-paperclip"></i>
+                            <i class="fa-solid fa-ellipsis-vertical"></i>
+                        </div>
+                    </div>
+
+                    <div class="bell-profile">
+                        <div class="profile">
+                            <div class="image-circle"> <i
+                                    class="fa-solid fa-bell-slash"></i> </div>
+                            <div class="profile-info">
+                                <strong>Ricevi notifiche di nuovi
+                                    messaggi</strong>
+                                <span class="underline-text">Attiva notifiche
+                                    desktop</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="search-bar">
+                        <input
+                            type="text"
+                            name="search"
+                            placeholder="Cerca o inizia una nuova chat" />
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </div>
+
+                    <ul class="contacts" v-for="contact in contacts">
+                        <li class="contact toast">
+                            <div class="contact-profile toast-content">
+                                <img class="contact__image"
+                                    :src="contact.avatar" alt />
+                                <div class="d-none d-lg-block">
+                                    <h3 class="contact-name">{{ contact.name
+                                        }}</h3>
+                                    <p class="last-access">Lorem ipsum dolor
+                                        sit.</p>
+                                </div>
+                            </div>
+                            <span class="time d-none d-lg-block"> 16:15 </span>
+                        </li>
+                    </ul>
+
+                </div>
+                <div class="main">
+                    <div class="recipient-profile">
+                        <div class="profile">
+                            <div class="image-circle"> <img
+                                    src="./img/avatar_1.jpg" alt> </div>
+                            <div class="profile-info">
+                                <strong>Michele</strong>
+                                <span>Ultimo accesso oggi alle 16:26</span>
+                            </div>
+                        </div>
+                        <div class="icons">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                            <i class="fa-solid fa-paperclip"></i>
+                            <i class="fa-solid fa-ellipsis-vertical"></i>
+                        </div>
+                    </div>
+
+                    <div class="text-area">
+                        <div class="text-container">
+                            <div class="recipient-text-message">
+                                <div class="text-message">Lorem, ipsum dolor sit
+                                    amet consectetur adipisicing elit.
+                                    Recusandae eum doloremque commodi ad
+                                    adipisci dignissimos amet in enim nostrum,
+                                    minus, aliquam magni dolorum atque nemo
+                                    sint! Aut veritatis totam quisquam iure quas
+                                    et, quam magni, cupiditate est vel
+                                    architecto. Tempore.</div>
+                                <div class="aside-message">
+                                    <select name="menu" id>
+                                        <option value></option>
+                                        <option value>Copia Messaggio</option>
+                                        <option value>Inoltra Messaggio</option>
+                                        <option value>Rispondi al
+                                            messaggio</option>
+                                        <option value>Aggiungi ai
+                                            preferiti</option>
+                                    </select>
+                                    <span>16:13</span>
+                                </div>
+                            </div>
+
+                            <div class="sender-text-message">
+                                <div class="text-message">Lorem ipsum dolor sit,
+                                    amet consectetur adipisicing elit. Est
+                                    voluptatibus quibusdam amet dolores corrupti
+                                    expedita neque, esse sit libero, rerum,
+                                    earum quis natus omnis vel beatae. Eaque
+                                    explicabo necessitatibus repellat.</div>
+                                <div class="aside-message">
+                                    <select name="menu" id>
+                                        <option value></option>
+                                        <option value>Copia Messaggio</option>
+                                        <option value>Inoltra Messaggio</option>
+                                        <option value>Rispondi al
+                                            messaggio</option>
+                                        <option value>Aggiungi ai
+                                            preferiti</option>
+                                    </select>
+                                    <span>16:13</span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="hotbar-area">
+                        <i class="fa-regular fa-face-smile"></i>
+                        <div class="message-text">Scrivi un messaggio</div>
+                        <i class="fa-solid fa-microphone"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+        <script src="./js/app.js"></script>
+    </body>
+</html>

@@ -1,0 +1,452 @@
+/* UTILITES */
+
+:root{
+    --background-color: white;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+img {
+    width: 100%;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+button {
+    border: none;
+    background-color: transparent;
+}
+
+menu,
+ul,
+ol {
+    list-style: none;
+}
+
+body {
+    font-family: 'Lato', 'sun serif';
+
+}
+
+select {
+    border: transparent;
+    color: grey;
+    margin-right: 10px;
+    height: 40px;
+    width: 20px;
+}
+
+.recipient-text-message select {
+    background-color: rgb(222, 248, 192);
+}
+
+.bg-white{
+    background-color: rgb(234, 234, 234);
+}
+
+.underline-text{
+    text-decoration: underline;
+}
+
+/* LAYOUT */
+
+#app {
+    height: 100vh;
+}
+
+.container {
+    display: flex;
+    height: 100%;
+}
+
+.row {
+    display: flex;
+}
+
+.aside {
+    display: none;
+    background-color: var(--background-color);
+    overflow-y: scroll;
+}
+
+.main {
+    display: flex;
+    background-color: blanchedalmond;
+    flex-grow: 1;
+    flex-direction: column;
+
+}
+
+.recipient-profile {
+    display: flex;
+    height: 60px;
+    width: 100%;
+    
+}
+
+.aside ul .li{
+    flex-grow: 1;
+    justify-content: center;
+}
+
+.icons {
+    display: none;
+    margin-left: auto;
+    overflow: hidden;
+    align-items: center;
+    color: grey;
+    gap: 10px;
+    padding-right: 10px;
+
+}
+
+.profile-info strong {
+    display: block;
+}
+
+span {
+    color: gray;
+}
+
+.text-area {
+
+    flex-grow: 1;
+    background-image: url(./img/mine.jpg);
+    overflow-y: scroll;
+}
+
+.text-container {
+    width:95%;
+    margin: 0 auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.sender-text-message {
+    display: flex;
+    max-width: 300px;
+    border: 1px transparent;
+    border-radius: 10px;
+    background-color: rgb(255, 255, 255);
+    padding: 10px;
+    margin-bottom: 10px;
+    align-self: flex-start;
+
+}
+
+.recipient-text-message {
+    display: flex;
+    max-width: 300px;
+    border: 1px transparent;
+    border-radius: 10px;
+    background-color: rgb(222, 248, 192);
+    padding: 10px;
+    margin-bottom: 10px;
+    align-self: flex-end;
+
+}
+
+.text-message {
+    display: flex;
+    padding-top: 10px;
+    padding-bottom: 20px;
+
+}
+
+.aside-message {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.aside-message span {
+    font-size: 10px;
+    margin-top: auto;
+}
+
+.hotbar-area {
+    display: flex;
+    height: 60px;
+    align-items: center;
+    color: grey;
+}
+
+.profile {
+    display: flex; 
+    align-items: center;
+    height:60px;
+    
+
+}
+
+.time{
+    font-size: 10px;
+    display: flex;
+    
+    
+}
+
+.image-circle {
+    display:flex;
+    border: 1px transparent;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    overflow: hidden;
+    margin: 0 10px;
+    
+}
+
+.message-text {
+    display: flex;
+    width: 85%;
+    align-items: center;
+    border: 1px transparent;
+    background-color: white;
+    border-radius: 10px;
+    height: 40px;
+    padding: 10px;
+
+}
+
+.hotbar-area {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.search-bar,
+.notification-box {
+	display: none;
+}
+
+.search-bar {
+	position: relative;
+	margin: 10px 0;
+}
+
+.search-bar i {
+	position: absolute;
+	top: 50%;
+	left: 20px;
+	color: #b1b1b1;
+	transform: translateY(-50%);
+	pointer-events: none;
+	font-size: 20px;
+}
+
+.search-bar input:focus-visible {
+	padding-left: 10px;
+}
+
+.search-bar input:focus-visible + i {
+	/* color: blue; */
+	display: none;
+}
+
+.search-bar input {
+	width: 100%;
+	height: 32px;
+	background-color: white;
+	border-top: 1px solid #d6d6d6;
+	border-bottom: 1px solid #d6d6d6;
+	outline: none;
+	padding-left: 50px;
+	padding-right: 10px;
+	transition: padding 300ms;
+}
+
+.contacts{
+    display:flex;
+    flex-direction:column
+}
+
+.aside .profile-info{
+    display:none;
+    
+}
+
+.toast {
+	padding: 5px;
+	display: flex;
+}
+
+.contacts {
+	background: white;
+	flex-grow: 1;
+}
+
+.contact:not(:last-child) {
+	border-bottom: 1px solid #d6d6d6;
+}
+
+.contact__image {
+	width: 50px;
+	aspect-ratio: 1/1;
+	border-radius: 50%;
+	object-fit: cover;
+}
+
+.contact-profile {
+	flex-grow: 1;
+	font-size: 14px;
+	color: #b1b1b1;
+}
+
+.contact-name {
+	color: black;
+	font-size: 16px;
+}
+
+.toast-content {
+	display: flex;
+	align-items: center;
+	gap: 16px;
+}
+/* ***************************************** */
+/* MEDIA QUERY */
+/* ***************************************** */
+
+
+/* MD BP 768 px */
+
+@media (min-width : 768px) {
+
+
+    .aside {
+        display: flex;
+        width: 60px;
+        flex-direction: column;
+
+    }
+
+    .main-md {
+        display: flex;
+        width: calc(100% - 100px);
+
+    }
+
+    .text-container {
+        width: 80%;
+        
+
+    }
+
+    .aside .icons{
+        display:none;
+    }
+
+    .icons{
+        display:flex;
+    }
+
+    .bell-profile{
+        display:none;
+    }
+
+    .recipient-text-message,
+    .sender-text-message{
+        max-width: 400px ;
+    }
+
+}
+
+
+/* XL BP 1200 px */
+
+@media (min-width:1200px) {
+
+    #app {
+        padding: 36 0px;
+        padding-top: 30px;
+    }
+
+    .container {
+        width: 70%;
+        margin: 0 auto;
+        
+    }
+
+    .aside {
+        display: flex;
+        width: 400px;
+        flex-direction: column;
+    }
+
+    .main-xl {
+        display: flex;
+        width: calc(100% - 300px);
+    }
+
+    body{
+        background: rgb(217, 219, 215);
+        background: -moz-linear-gradient(180deg,
+                rgba(78, 147, 137, 1) 150px,
+                rgba(217, 219, 215, 1) 150px);
+        background: -webkit-linear-gradient(180deg,
+                rgba(78, 147, 137, 1) 150px,
+                rgba(217, 219, 215, 1) 150px);
+        background: linear-gradient(180deg,
+                rgba(78, 147, 137, 1) 150px,
+                rgba(217, 219, 215, 1) 150px);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#d9dbd7", endColorstr="#4e9389", GradientType=1)
+    }
+
+    .text-container {
+        width: 75%;
+
+    }
+
+     .profile-info {
+        font-size: 12px;
+    }
+
+    .aside .profile .image-circle{
+        align-items: center;
+        justify-content: center;
+        color: rgb(166, 215, 249);
+        background-color: white;
+    } 
+    
+    .bell-profile {
+        display: flex;
+        height: 60px;
+        width: 100%;
+        background-color: rgb(166, 215, 249);
+    }
+
+    .search-bar{
+        display:block;
+    }
+    
+    .aside .profile-info{
+        display:block;
+    }
+
+    .d-lg-block {
+		display: block;
+	}
+
+	.d-lg-flex {
+		display: flex;
+	}
+
+    .toast{
+        padding:16px;
+    }
+
+    .recipient-text-message,
+    .sender-text-message{
+        max-width: 400px ;
+    }
+}
