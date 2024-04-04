@@ -165,7 +165,19 @@ createApp({
                         }
                     ],
                 }
-            ]
+            ],
+            message: null,
+            currentContact: 0,
         }
-    }
+        
+    },
+
+    methods: {
+       
+       selectCurrentContact(i){
+            this.currentContact = i
+            console.log( this.currentContact, i)
+       }
+    
+    },
 }).mount('#app')

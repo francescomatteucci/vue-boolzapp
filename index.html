@@ -51,9 +51,10 @@
                         <i class="fa-solid fa-magnifying-glass"></i>
                     </div>
 
-                    <ul class="contacts" v-for="contact in contacts">
-                        <li class="contact toast">
-                            <div class="contact-profile toast-content">
+                    <ul class="contacts" >
+                        <li class="contact toast" v-for="(contact,i) in contacts" :class="i === currentContact ? 'active' : ''">
+                            <div class="contact-profile toast-content"
+                                @click="selectCurrentContact(i)">
                                 <img class="contact__image"
                                     :src="contact.avatar" alt />
                                 <div class="d-none d-lg-block">
@@ -68,16 +69,21 @@
                     </ul>
 
                 </div>
+
                 <div class="main">
                     <div class="recipient-profile">
                         <div class="profile">
-                            <div class="image-circle"> <img
-                                    src="./img/avatar_1.jpg" alt> </div>
+                            <div class="image-circle">
+                                <img :src="contacts[currentContact].avatar"
+                                    alt />
+                            </div>
                             <div class="profile-info">
-                                <strong>Michele</strong>
+                                <strong>{{ contacts[currentContact].name}}</strong>
+
                                 <span>Ultimo accesso oggi alle 16:26</span>
                             </div>
                         </div>
+
                         <div class="icons">
                             <i class="fa-solid fa-magnifying-glass"></i>
                             <i class="fa-solid fa-paperclip"></i>
@@ -87,17 +93,13 @@
 
                     <div class="text-area">
                         <div class="text-container">
-                            <div class="recipient-text-message">
-                                <div class="text-message">Lorem, ipsum dolor sit
-                                    amet consectetur adipisicing elit.
-                                    Recusandae eum doloremque commodi ad
-                                    adipisci dignissimos amet in enim nostrum,
-                                    minus, aliquam magni dolorum atque nemo
-                                    sint! Aut veritatis totam quisquam iure quas
-                                    et, quam magni, cupiditate est vel
-                                    architecto. Tempore.</div>
+                            <div :class="currentMessage.status === 'sent' ? 'sender-text-message' : 'recipient-text-message'" v-for="currentMessage in contacts[currentContact].messages ">
+                                <ul class="text-message">
+                                    <li>{{ currentMessage.message }}</li>
+                                </ul>
+                                
                                 <div class="aside-message">
-                                    <select name="menu" id>
+                                    <select name="menu">
                                         <option value></option>
                                         <option value>Copia Messaggio</option>
                                         <option value>Inoltra Messaggio</option>
@@ -106,30 +108,11 @@
                                         <option value>Aggiungi ai
                                             preferiti</option>
                                     </select>
-                                    <span>16:13</span>
+                                    <span>{{ currentMessage.date.slice(11,16) }}</span>
                                 </div>
                             </div>
 
-                            <div class="sender-text-message">
-                                <div class="text-message">Lorem ipsum dolor sit,
-                                    amet consectetur adipisicing elit. Est
-                                    voluptatibus quibusdam amet dolores corrupti
-                                    expedita neque, esse sit libero, rerum,
-                                    earum quis natus omnis vel beatae. Eaque
-                                    explicabo necessitatibus repellat.</div>
-                                <div class="aside-message">
-                                    <select name="menu" id>
-                                        <option value></option>
-                                        <option value>Copia Messaggio</option>
-                                        <option value>Inoltra Messaggio</option>
-                                        <option value>Rispondi al
-                                            messaggio</option>
-                                        <option value>Aggiungi ai
-                                            preferiti</option>
-                                    </select>
-                                    <span>16:13</span>
-                                </div>
-                            </div>
+            
                         </div>
 
                     </div>
