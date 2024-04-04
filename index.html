@@ -93,13 +93,13 @@
 
                     <div class="text-area">
                         <div class="text-container">
-                            <div :class="currentMessage.status === 'sent' ? 'sender-text-message' : 'recipient-text-message'" v-for="currentMessage in contacts[currentContact].messages ">
+                            <div  :class="currentMessage.status === 'sent' ? 'sent-text-message' : 'received-text-message'" v-for="currentMessage in contacts[currentContact].messages ">
                                 <ul class="text-message">
                                     <li>{{ currentMessage.message }}</li>
                                 </ul>
                                 
-                                <div class="aside-message">
-                                    <select name="menu">
+                                <div class="aside-message" >
+                                    <select name="menu":class="currentMessage.status === 'sent' ? 'sent-text-message menu-sent' : 'received-text-message menu-received'">
                                         <option value></option>
                                         <option value>Copia Messaggio</option>
                                         <option value>Inoltra Messaggio</option>
@@ -118,9 +118,10 @@
                     </div>
                     <div class="hotbar-area">
                         <i class="fa-regular fa-face-smile"></i>
-                        <div class="message-text">Scrivi un messaggio</div>
+                        <input v-model="newMessage"  @keyup.enter="addMessage()" type="text" class="message-text" placeholder="Scrivi un messaggio"></input>
                         <i class="fa-solid fa-microphone"></i>
                     </div>
+                    
                 </div>
             </div>
         </div>

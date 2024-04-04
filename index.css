@@ -132,7 +132,7 @@ span {
 
 }
 
-.sender-text-message {
+.received-text-message {
     display: flex;
     max-width: 300px;
     border: 1px transparent;
@@ -144,7 +144,7 @@ span {
 
 }
 
-.recipient-text-message {
+.sent-text-message {
     display: flex;
     max-width: 300px;
     border: 1px transparent;
@@ -179,6 +179,7 @@ span {
     height: 60px;
     align-items: center;
     color: grey;
+    align-items: center;
 }
 
 .profile {
@@ -209,6 +210,14 @@ span {
     overflow: hidden;
     margin: 0 10px;
     
+}
+
+.menu-sent{
+    background-color: rgb(222, 248, 192);
+}
+
+.menu-received{
+    background-color: rgb(255, 255, 255);
 }
 
 .message-text {

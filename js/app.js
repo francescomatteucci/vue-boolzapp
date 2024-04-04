@@ -168,6 +168,7 @@ createApp({
             ],
             message: null,
             currentContact: 0,
+            newMessage: '',
         }
         
     },
@@ -177,7 +178,14 @@ createApp({
        selectCurrentContact(i){
             this.currentContact = i
             console.log( this.currentContact, i)
-       }
+       },
+
+       addMessage() {
+        if (this.newMessage !== '' && this.newMessage.trim() !== '') { 
+            this.contacts[this.currentContact].messages.push({ message: this.newMessage, status: 'sent' , date: '04/04/2024 11:50:00'}); 
+            this.newMessage = ''; 
+        }
+    }
     
     },
 }).mount('#app')
