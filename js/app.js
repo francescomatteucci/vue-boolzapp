@@ -169,23 +169,33 @@ createApp({
             message: null,
             currentContact: 0,
             newMessage: '',
+            newAnswerMessage: '',
         }
         
     },
 
     methods: {
        
-       selectCurrentContact(i){
-            this.currentContact = i
-            console.log( this.currentContact, i)
-       },
+        addMessage() {
+            if (this.newMessage !== '' && this.newMessage.trim() !== '') {
+                
+                this.contacts[this.currentContact].messages.push({
+                    message: this.newMessage,
+                    status: 'sent',
+                    date: '04/04/2024 11:50:00'
+                });
+                this.newMessage = '';
+                setTimeout(this.answerMessage, 1000);
+            }
+        },
 
-       addMessage() {
-        if (this.newMessage !== '' && this.newMessage.trim() !== '') { 
-            this.contacts[this.currentContact].messages.push({ message: this.newMessage, status: 'sent' , date: '04/04/2024 11:50:00'}); 
-            this.newMessage = ''; 
-        }
-    }
-    
+        answerMessage() {
+            this.contacts[this.currentContact].messages.push({
+                message: 'Ok',
+                status: 'received',
+                date: '04/04/2024 11:51:00'
+            });
+        },
     },
+
 }).mount('#app')
